@@ -27,6 +27,7 @@ class Shop:
                 print(f'Продукт {i} уже есть в магазине')
             else:
                 file.write(f'{i.name}, {i.weight}, {i.category}\n')
+        file.close()
 
 
 s1 = Shop()
