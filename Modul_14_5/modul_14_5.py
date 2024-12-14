@@ -11,7 +11,7 @@ from crud_functions import *
 connection = sqlite3.connect('All_Users.db')
 cursor = connection.cursor()
 
-api = '7690321528:AAGexb2aJ-ozEFgADmvnK7KLCAN7HlqFqoY'
+api = '***'
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
