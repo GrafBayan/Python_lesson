@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .user-card {
+            border: 1px solid purple; /* Фиолетовая рамочка */
+            padding: 20px; /* Отступ внутри рамки */
+            border-radius: 5px; /* Закругленные углы */
+            margin-bottom: 20px; /* Отступ снизу */
+            max-width: 400px; /* Максимальная ширина рамки, можно настроить */
+            /* Уберите margin-left и margin-right для выравнивания влево */
+        }
+        .user-image {
+            display: block; /* Центрирование изображения */
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%; /* Адаптивная ширина */
+            height: auto; /* Автоматическая высота для пропорций */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="p-3 mb-2 bg-primary text-white">
+                <h1>CRUD Application</h1>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h2 class="mt-4">User Details</h2>
+        <div class="d-flex">
+            {% if user %}
+                <div class="user-card me-3">
+                    {% if user.image_url %}
+                        <img src="/static/{{ user.image_url }}" alt="Image of {{ user.username }}" class="user-image"> <!-- Центрируем только изображение -->
+                    {% endif %}
+                    <p>ID: {{ user.id }}</p>
+                    <p>Name: {{ user.username }}</p>
+                    <p>Age: {{ user.age }}</p>
+                </div>
+            {% else %}
+                <p>User not found!</p>
+            {% endif %}
+        </div>
+        <a href="/" class="btn btn-primary mt-3">Back to users</a>
+    </div>
+</body>
+</html>
