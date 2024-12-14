@@ -1,0 +1,16 @@
+2024-12-15 01:00:26,010 | WARNING | Неверный тип данных для объекта Runner
+Traceback (most recent call last):
+  File "D:\Phyton\Modul_12_4\modul_12_4.py", line 78, in test_run
+    runern = Runner(name=5, speed=10)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Phyton\Modul_12_4\modul_12_4.py", line 14, in __init__
+    raise TypeError(f'Имя может быть только числом, передано {type(name).__name__}')
+TypeError: Имя может быть только числом, передано int
+2024-12-15 01:00:26,011 | WARNING | Неверная скорость для Runner
+Traceback (most recent call last):
+  File "D:\Phyton\Modul_12_4\modul_12_4.py", line 69, in test_walk
+    walker = Runner(name="Billy", speed=-5)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Phyton\Modul_12_4\modul_12_4.py", line 18, in __init__
+    raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+ValueError: Скорость не может быть отрицательной, сейчас -5
