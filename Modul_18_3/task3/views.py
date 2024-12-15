@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 
-# Глобальная переменная для хранения купленных настолок
 cart_items = {}
 
-# Главная страница
 def main(request):
     title = 'Онлайн магазин настолок'
     text1 = ('Мы любим вас и ненавидим, как друзей, покупайте же у нас настолки для себя и своих друзей (с нами '
@@ -14,7 +12,6 @@ def main(request):
     }
     return render(request, 'third_task/main_page.html', context)
 
-# Страница магазина
 def shop(request):
     games = [
         {"name": "Bullet", "price": 13},
@@ -22,7 +19,6 @@ def shop(request):
         {"name": "The East Indian Campaign", "price": 19},
     ]
 
-    # Обработка покупки
     if request.method == "POST":
         game_name = request.POST.get('game_name')
         game_price = next((game["price"] for game in games if game["name"] == game_name), None)
