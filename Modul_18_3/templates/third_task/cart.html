@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+</head>
+<body>
+    <h1>Ваша корзина</h1>
+    <ul>
+        {% for item_name, item_price, item_quantity in cart_items %}
+            <li>{{ item_name }} - {{ item_price }}$ x {{ item_quantity }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Общая сумма: {{ total_price }}$</h2> <!-- Отображаем общую сумму -->
+
+    <button type="button"><a href="{% url 'main' %}">Главная</a></button>
+    <button type="button"><a href="{% url 'shop' %}">Магазин</a></button>
+</body>
+</html>

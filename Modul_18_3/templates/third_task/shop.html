@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин</title>
+</head>
+<body>
+    <h1>Настолки</h1>
+    <ul>
+        {% for game in games %}
+            <li>
+                {{ game.name }} - {{ game.price }}$
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="game_name" value="{{ game.name }}">
+                    <button type="submit">Купить</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="button"> <a href="{% url 'main' %}">Главная</a></button>
+    <button type="button"><a href="{% url 'cart' %}">Корзина</a></button>
+</body>
+</html>
