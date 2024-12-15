@@ -1,10 +1,9 @@
 from email.policy import default
-
-from app.backend.db import Base
+from backend.db import Base
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean
 from sqlalchemy.orm import relationship
-
-
+from sqlalchemy.schema import CreateTable
+from user import User
 
 class Task(Base):
     __tablename__ = 'tasks'
@@ -18,3 +17,5 @@ class Task(Base):
     slug = Column(String, unique=True, index=True)
 
     user = relationship("User", back_populates='tasks')
+
+print(CreateTable(Task.__table__))
